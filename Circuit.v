@@ -1,16 +1,16 @@
-Require Export List.
-Require Export Setoid.
-Require Export SetoidPermutation.
-Require Export Relation_Definitions.
-Require Import Arith.
-Require Import ZArith.
-Require Export BinNums.
-Require Import BinPos BinNat Nat.
-Require Import Logic.
-Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
+From Stdlib Require Export List.
+From Stdlib Require Export Setoid.
+From Stdlib Require Export SetoidPermutation.
+From Stdlib Require Export Relation_Definitions.
+From Stdlib Require Import Arith.
+From Stdlib Require Import ZArith.
+From Stdlib Require Export BinNums.
+From Stdlib Require Import BinPos BinNat Nat.
+From Stdlib Require Import Logic.
+From Stdlib Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
 Import ListNotations.
-Require Export Lists.List.
-Require Import Sorting.
+From Stdlib Require Export Lists.List.
+From Stdlib Require Import Sorting.
 Require Import Facts Neuron SortList.
 
 
@@ -117,7 +117,7 @@ Proof.
       now destruct (Nat.nlt_0_r id).
     * apply length_S_last_elt in Hlen as [y [l3 [H0 H1]]].
       subst l.
-      rewrite app_length in H.
+      rewrite length_app in H.
       rewrite Nat.add_1_r in H.
       apply PeanoNat.lt_n_Sm_le in H.
       apply Nat.le_lteq in H as [H0|H0].
@@ -143,7 +143,7 @@ Proof.
          right; now left.
          apply Nat.le_succ_l in H3.
          apply (Nat.le_lt_trans _ _ _ H3) in H.
-         rewrite app_length in H.
+         rewrite length_app in H.
          rewrite Nat.add_1_r in H.
          apply Nat.le_succ_l.
          now apply PeanoNat.lt_S_n.
@@ -270,7 +270,7 @@ Lemma id_inf_numb_neuron_next : forall (nc : NeuroCircuit) inp (n : Neuron),
 Proof.
   intros nc inp n H.
   unfold NextListNeuro in *.
-  rewrite map_length.
+  rewrite length_map.
   apply in_map_iff in H as [n0 [H H0]].
   subst.
   apply IdInfLen in H0.
@@ -326,7 +326,7 @@ Proof.
   induction inp as [|i inp IH]; trivial.
   simpl.
   unfold NextListNeuro.
-  now rewrite map_length.
+  now rewrite length_map.
 Qed.
 
 Lemma listneuro_nstep_supplinput : forall inp nc,
@@ -921,7 +921,7 @@ Proof.
   split; [|split; [|split]]; trivial.
   - simpl. now rewrite H1.
   - simpl. unfold NextListNeuro.
-    now rewrite ! map_length.
+    now rewrite ! length_map.
   - intros n1 n2 H H0 H6.
     simpl in H, H0.
     unfold NextListNeuro in H, H0.
@@ -931,7 +931,7 @@ Proof.
     simpl in H6.
     simpl.
     unfold NextListNeuro.
-    rewrite map_length.
+    rewrite length_map.
     specialize (H3 _ _ Hb Hd H6).
     repeat split; try solve [now apply H3].
     * unfold NextNeuroInNC.

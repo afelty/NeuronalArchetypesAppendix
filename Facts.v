@@ -1,9 +1,9 @@
-Require Export List.
-Require Import Nat.
-Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
+From Stdlib Require Export List.
+From Stdlib Require Import Nat.
+From Stdlib Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
 Import ListNotations.
-Require Export Lists.List.
-Require Import Sorting.
+From Stdlib Require Export Lists.List.
+From Stdlib Require Import Sorting.
 
 
   (*Auxiliar notation and lemmas *)
@@ -723,12 +723,12 @@ Qed.
       exists x l', l = l' ++ [x] /\ length l' = n.
   Proof.
     intros A l n H.
-    rewrite <- rev_length in H.
+    rewrite <- length_rev in H.
     apply length_S_fst_elt in H as [x [l' [H H0]]].
     rewrite <- (rev_involutive l).
     rewrite H.
     exists x, (rev l'); split; trivial.
-    now rewrite rev_length.
+    now rewrite length_rev.
   Qed.
 
   

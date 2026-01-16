@@ -1,8 +1,8 @@
-Require Import List SetoidList.
-Require Import Arith.
-Require Import Nat.
+From Stdlib Require Import List SetoidList.
+From Stdlib Require Import Arith.
+From Stdlib Require Import Nat.
 Import ListNotations.
-Require Import Sorting.
+From Stdlib Require Import Sorting.
 Require Import Facts.
 
 
@@ -287,7 +287,7 @@ Proof.
     apply (proj1 (Forall_forall _ _)) with x in H4; trivial.
     apply le_n_S in H1.
     apply Nat.le_succ_l in H4.
-    rewrite app_length, Nat.add_1_r.
+    rewrite length_app, Nat.add_1_r.
     revert H1 H4.
     apply (Nat.le_trans _ _ _).
 Qed.
@@ -317,7 +317,7 @@ Proof.
     apply in_or_app.
     right; now left.
     apply (IH (l1 ++ [y]) y l3 H Hleng H1) in H0.
-    rewrite app_length in H0.
+    rewrite length_app in H0.
     rewrite Nat.add_1_r in H0.
     apply in_split in Hin as [l4 [l5 Hin]].
     subst.
@@ -345,7 +345,7 @@ Proof.
   apply (sorted_sup_length_fst_app _ _ _ _ _ H).
   now left.
   assert (H0 := sorted_inf_length_fst_app _ f x (l1 ++ [x]) l2).
-  rewrite (app_length l1 [x]) in H0.
+  rewrite (length_app l1 [x]) in H0.
   rewrite Nat.add_1_r in H0.
   apply PeanoNat.lt_n_Sm_le.
   apply H0.

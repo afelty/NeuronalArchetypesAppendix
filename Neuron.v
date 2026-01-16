@@ -1,16 +1,16 @@
-Require Export List.
-Require Export Setoid.
-Require Export SetoidPermutation.
-Require Export Relation_Definitions.
-Require Import Arith.
-Require Import ZArith.
-Require Export BinNums.
-Require Import BinPos BinNat Nat.
-Require Import Logic.
-Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
+From Stdlib Require Export List.
+From Stdlib Require Export Setoid.
+From Stdlib Require Export SetoidPermutation.
+From Stdlib Require Export Relation_Definitions.
+From Stdlib Require Import Arith.
+From Stdlib Require Import ZArith.
+From Stdlib Require Export BinNums.
+From Stdlib Require Import BinPos BinNat Nat.
+From Stdlib Require Import Logic.
+From Stdlib Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
 Import ListNotations.
-Require Export Lists.List.
-Require Import Sorting.
+From Stdlib Require Export Lists.List.
+From Stdlib Require Import Sorting.
 Require Import Facts.
 
 (*Definition of the features of a neuron *)

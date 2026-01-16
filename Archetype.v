@@ -1,16 +1,16 @@
-Require Export List.
-Require Export Setoid.
-Require Export SetoidPermutation.
-Require Export Relation_Definitions.
-Require Import Arith.
-Require Import ZArith.
-Require Export BinNums.
-Require Import BinPos BinNat Nat.
-Require Import Logic.
-Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
+From Stdlib Require Export List.
+From Stdlib Require Export Setoid.
+From Stdlib Require Export SetoidPermutation.
+From Stdlib Require Export Relation_Definitions.
+From Stdlib Require Import Arith.
+From Stdlib Require Import ZArith.
+From Stdlib Require Export BinNums.
+From Stdlib Require Import BinPos BinNat Nat.
+From Stdlib Require Import Logic.
+From Stdlib Require Import QArith QArith_base Qabs Qpower Qreduction Qring Qfield.
 Import ListNotations.
-Require Export Lists.List.
-Require Import Sorting.
+From Stdlib Require Export Lists.List.
+From Stdlib Require Import Sorting.
 Require Import Facts Neuron Circuit.
 
 
@@ -477,7 +477,7 @@ Proof.
       destruct inp.
       now destruct (Nat.nlt_0_r (S m)).
       simpl.
-      rewrite map_length.
+      rewrite length_map.
       now apply PeanoNat.lt_S_n.
     * case_eq (S m =? length inp)%nat; intros H.
       -- apply Nat.eqb_eq in H.
@@ -486,7 +486,7 @@ Proof.
          apply Nat.ltb_lt in H0.
          rewrite H0.
          rewrite H at 1.
-         rewrite <- (map_length  (fun f : nat -> bool => f (length (ListNeuro nc)))) at 1.
+         rewrite <- (length_map  (fun f : nat -> bool => f (length (ListNeuro nc)))) at 1.
          rewrite afternlist_nil.
          simpl.
          now rewrite repeat_cons_same.
@@ -2040,7 +2040,7 @@ Proof.
          apply in_or_app.
          right; now left.
          simpl in H4.
-         rewrite app_length.
+         rewrite length_app.
          rewrite Nat.add_1_r.
          now split.
 Qed.
